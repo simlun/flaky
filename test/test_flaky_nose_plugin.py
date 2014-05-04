@@ -3,18 +3,18 @@
 from __future__ import unicode_literals
 from io import StringIO
 from mock import call, MagicMock, patch
-from box.test.flaky.flaky_decorator import flaky
-from box.test.flaky.flaky_nose_plugin import FlakyPlugin
-from box.test.flaky.names import FlakyNames
-from box.test.flaky.utils import TestCase, unicode_type
+from flaky.flaky_decorator import flaky
+from flaky.flaky_nose_plugin import FlakyPlugin
+from flaky.names import FlakyNames
+from flaky.utils import TestCase, unicode_type
 
 
 class TestFlakyPlugin(TestCase):
     def setUp(self):
         super(TestFlakyPlugin, self).setUp()
 
-        test_mod = 'box.test.flaky.flaky_nose_plugin'
-        test_base_mod = 'box.test.flaky._flaky_plugin'
+        test_mod = 'flaky.flaky_nose_plugin'
+        test_base_mod = 'flaky._flaky_plugin'
         self._mock_test_result = MagicMock()
         self._mock_stream = MagicMock(spec=StringIO)
         with patch(test_mod + '.TextTestResult') as flaky_result:

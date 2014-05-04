@@ -17,16 +17,15 @@ def main():
         url='https://github.com/box/flaky',
         license=open(join(base_dir, 'LICENSE')).read(),
         packages=find_packages(exclude=['test']),
-        namespace_packages=['box', 'box.test'],
         test_suite='test',
         tests_require=['pytest', 'nose'],
         zip_safe=False,
         entry_points={
             'nose.plugins.0.10': [
-                'flaky = box.test.flaky.flaky_nose_plugin:FlakyPlugin'
+                'flaky = flaky.flaky_nose_plugin:FlakyPlugin'
             ],
             'pytest11': [
-                'flaky = box.test.flaky.flaky_pytest_plugin'
+                'flaky = flaky.flaky_pytest_plugin'
             ]
         },
         keywords='nose pytest plugin flaky tests rerun retry',

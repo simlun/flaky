@@ -2,8 +2,8 @@
 
 from __future__ import unicode_literals
 from io import StringIO
-from box.test.flaky.names import FlakyNames
-from box.test.flaky.utils import unicode_type
+from flaky.names import FlakyNames
+from flaky.utils import unicode_type
 
 
 class _FlakyPlugin(object):
