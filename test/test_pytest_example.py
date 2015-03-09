@@ -9,6 +9,7 @@ from __future__ import unicode_literals
 import pytest
 # pylint:enable=import-error
 from flaky import flaky
+from unittest import TestCase
 
 
 @flaky
@@ -65,6 +66,19 @@ class TestExample(object):
 
 @flaky
 class TestExampleFlakyTests(object):
+    _threshold = -1
+
+    def test_flaky_thing_that_fails_then_succeeds(self):
+        """
+        Flaky will run this test twice.
+        It will fail once and then succeed.
+        """
+        self._threshold += 1
+        assert self._threshold >= 1
+
+
+@flaky
+class TestExampleFlakyTestsThatsInheritingTestCase(TestCase):
     _threshold = -1
 
     def test_flaky_thing_that_fails_then_succeeds(self):
